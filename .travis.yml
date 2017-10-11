@@ -19,7 +19,7 @@ cache:
 install:
   - npm set progress=false
   - npm i
-  - cd functions && npm i
+  - cd functions && npm i ; cd -
   - npm i -g firebase-tools
 
 script:

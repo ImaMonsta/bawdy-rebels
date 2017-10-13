@@ -14,6 +14,7 @@ They are preconfigured and hidden so that you can focus on the code.
 
 ### What has inside?
 - React
+- Firebase
 - Material UI
 - Webpack
 - Babel

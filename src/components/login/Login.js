@@ -1,33 +1,56 @@
 import React, { Component } from 'react';
-import {Button, AppBar, Toolbar, Typography, Input} from 'material-ui';
+import {Button, AppBar, Toolbar, TextField, IconButton, Typography} from 'material-ui';
+import { Menu as MenuIcon } from 'material-ui-icons';
+import { withStyles } from 'material-ui/styles';
+
+const styles = theme => ({
+    root: {
+      marginTop: theme.spacing.unit * 2,
+      width: '100%',
+    },
+    flex: {
+      flex: 1,
+    },
+    menuButton: {
+      marginLeft: -12,
+      marginRight: 20,
+    },
+  });
 
 class Login extends Component{
+    
     render(){
+        const { classes } = this.props;
         return(
             <div>
-                <AppBar position="static" color="default">
+                <AppBar position="static" color="primary">
                     <Toolbar>
-                    <Typography type="title" color="inherit">
-                        Title
-                    </Typography>
+                        <IconButton aria-label="Menu">
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography type="title" color="inherit" className={classes.flex}/>
+                        <Button >Login</Button>
                     </Toolbar>
                 </AppBar>
-                <Input placeHolder="Username"/>
                 <br/>
-                <Input placeHolder="Password"/>
+                <TextField
+                    id="username"
+                    label="Username"
+                    margin="normal" />
                 <br/>
-                <Button label="Submit" primary={true} style={style} >
+                <TextField
+                    id="password"
+                    label="Password"
+                    type="password"
+                    margin="normal" />
+                <br/>
+                <Button raised label="Submit" color="accent">
                     Login
                 </Button>
             </div>
         );
-
-        
     }
 }
 
-const style = {
-    margin: 15,
-   };
 
-export default Login;
+export default withStyles(styles)(Login);

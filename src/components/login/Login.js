@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, AppBar, Toolbar, TextField, IconButton, Typography, Grid, Avatar } from 'material-ui';
+import { Button, AppBar, Toolbar, TextField, IconButton, Typography, Grid } from 'material-ui';
 import { Menu as MenuIcon } from 'material-ui-icons';
 import { withStyles } from 'material-ui/styles';
 import { styles } from '../../settings/ThemeConfig';

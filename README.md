@@ -12,4 +12,10 @@ This app use [Firebase](https://firebase.google.com/) so you will definitely wil
 You **don’t** need to install or configure tools like Webpack or Babel.<br>
 They are preconfigured and hidden so that you can focus on the code.
 
+### What has inside?
+- React
+- Material UI
+- Webpack
+- Babel
+
 Just install the dependencies, and you’re good to go.

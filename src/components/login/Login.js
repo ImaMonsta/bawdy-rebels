@@ -23,7 +23,7 @@ class Login extends Component{
                         <br/>
                         <div className={this.props.classes.center}>
                             <div style={{ display: 'flex', justifyContent: 'center',}}>
-                        <Avatar alt="Remy Sharp" src={Logo} style={{ width: 200, height: 200, }} />
+                        <img alt="Remy Sharp" src={Logo} style={{ width: 200, height: 200, }} />
                         </div>
                             <Typography type="headline" component="h1">I've got a Question?</Typography>
                             <br/>

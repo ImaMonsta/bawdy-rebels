@@ -12,7 +12,7 @@ class Home extends Component {
                         <h2>I've got a question?</h2>
                         <p class="lead mt-3">Let the questions begin.</p>
 						<p className="lead mt-3"></p>
-                        <button type="submit" className="btn btn-lg btn-primary pill-btn">Get Started</button>
+                        <button type="submit" className="btn btn-outline-white btn-lg mb-2 ml-2 ml-2">Get Started</button>
 					</div>	
 				</div>
 			</div>

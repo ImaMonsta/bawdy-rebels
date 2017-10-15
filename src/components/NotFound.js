@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class NotFound extends Component {
     render() {
         return (
+			
 			<section className="features-4 text-center">
 			<div className="container">
 				<div className="row justify-center">

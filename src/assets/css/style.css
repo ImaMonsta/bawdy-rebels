@@ -1,7 +1,7 @@
 section, footer {
   border: 20px solid #1b1b1b;
   border-bottom: none; 
-  height:100vh; 
+  height:100%; 
   }
 
   div#id {height:100vh; }
@@ -12,7 +12,7 @@ body {
 body {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  background-color: #ffffff;
+  background-color: #1b1b1b;
   color: #46484a; 
   height:100vh;}
 

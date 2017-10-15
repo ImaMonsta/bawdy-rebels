@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
+import {DefaultRouteConfig} from './settings/RouteConfig';
+import 'bootstrap/dist/css/bootstrap.css';
+import './assets/css/style.css';
 import './App.css';
-import { MuiThemeProvider } from 'material-ui/styles';
-import {theme} from  './settings/ThemeConfig'
-import Login from './components/login/Login'
 
-class App extends Component {
+class App extends Component { 
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-          <Login/>
-      </MuiThemeProvider>
+        <DefaultRouteConfig/>
     );
   }
 }

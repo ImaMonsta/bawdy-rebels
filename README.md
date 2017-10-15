@@ -15,7 +15,8 @@ They are preconfigured and hidden so that you can focus on the code.
 ### What has inside?
 - React
 - Firebase (Database, Hosting, Functions)
-- Material UI
+- Bootstrap
+- Font Awesome
 - Webpack
 - Babel
 

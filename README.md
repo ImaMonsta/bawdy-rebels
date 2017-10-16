@@ -13,11 +13,12 @@ You **don’t** need to install or configure tools like Webpack or Babel.<br>
 They are preconfigured and hidden so that you can focus on the code.
 
 ### What has inside?
-- React
-- Firebase (Database, Hosting, Functions)
-- Bootstrap
-- Font Awesome
-- Webpack
-- Babel
+- react
+- react-router-dom
+- firebase (Database, Hosting, Functions)
+- bootstrap
+- font awesome
+- webpack
+- babel
 
 Just install the dependencies, and you’re good to go.

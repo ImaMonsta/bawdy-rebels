@@ -8,6 +8,7 @@ class PostQuestion extends Component {
 
     postQuestion(event){
         event.preventDefault();
+        if(this.question.value === "") return;
         const question = {
             question: this.question.value,
             status: "open",
@@ -15,11 +16,12 @@ class PostQuestion extends Component {
             votes: {},
         };
         this.props.addNewQuestion(question);
+        this.questionForm.reset();
     }
 
     render() {
         return (
-                <form className="col-sm-12 subscribe" onSubmit={this.postQuestion}>
+                <form ref={(input) => this.questionForm = input} className="col-sm-12 subscribe" onSubmit={this.postQuestion}>
                     <div className="form-group row pt-3">
                         <div className="col-sm-10 mb-3">
                             <input ref={ (input) => this.question = input} type="text" className="form-control-custom" id="inputQuestion" placeholder="Question"/>

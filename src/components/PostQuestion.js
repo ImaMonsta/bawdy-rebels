@@ -13,7 +13,10 @@ class PostQuestion extends Component {
             question: this.question.value,
             status: "open",
             author: "yo",
-            votes: {},
+            when: Date.now(),
+            votes: { 
+                "yo": Date.now()
+            },
         };
         this.props.addNewQuestion(question);
         this.questionForm.reset();
@@ -21,16 +24,16 @@ class PostQuestion extends Component {
 
     render() {
         return (
-                <form ref={(input) => this.questionForm = input} className="col-sm-12 subscribe" onSubmit={this.postQuestion}>
-                    <div className="form-group row pt-3">
-                        <div className="col-sm-10 mb-3">
-                            <input ref={ (input) => this.question = input} type="text" className="form-control-custom" id="inputQuestion" placeholder="Question"/>
-                        </div>
-                        <div className="col-sm-2">
-                            <button type="submit" className="btn btn-lg btn-outline-success">Ask</button>
-                        </div>
+            <form ref={(input) => this.questionForm = input} className="col-sm-12 subscribe" onSubmit={this.postQuestion}>
+                <div className="form-group row pt-3">
+                    <div className="col-sm-10 mb-3">
+                        <input ref={ (input) => this.question = input} type="text" className="form-control-custom" id="inputQuestion" placeholder="Question?"/>
                     </div>
-				</form>
+                    <div className="col-sm-2">
+                        <button type="submit" className="btn btn-lg btn-outline-success">Ask</button>
+                    </div>
+                </div>
+            </form>
         );
     }
 }

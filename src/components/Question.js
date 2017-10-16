@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class Question extends Component {
     constructor(){
@@ -16,16 +17,25 @@ class Question extends Component {
     }
     render() {
         return (
-            <div className="col-sm-6">
-                <div className="box">
-                    <img className="rounded-circle" alt="1" src="https://s.gravatar.com/avatar/d67612c2a3a5243efe7abbc9078261ae?s=400" style={{maxWidth: 80, maxHeight: 80}}/>
-                    <p className="quote-text">{`"${this.props.details.question}"`} <span className={`badge badge-${(this.props.i === 0) ? "success" : "info"}`}>{`+ ${Object.keys(this.props.details.votes).length }`}</span></p>
-                    <ul className="social">
-                        <li><a href="" title="vote" className="fa fa-thumbs-up" onClick={this.vote}> </a></li>
-                        <li><a href="" title="close" className="fa fa-times" onClick={this.close}> </a></li>
-                        <div className="clear"></div>
-                    </ul>
-                    <p><span className="quote-author">{this.props.details.author}</span></p>
+            <div className="row">
+                <div className="comments col-md-12" id="comments">
+                    <div className="comment mb-2 row">
+                        <div className="comment-avatar col-md-1 col-sm-2 text-center pr-1">
+                            <a href=""><img className="mx-auto rounded-circle img-fluid" src="https://s.gravatar.com/avatar/d67612c2a3a5243efe7abbc9078261ae?s=400" alt="avatar"/></a>
+                        </div>
+                        <div className="comment-content col-md-11 col-sm-10">
+                            <h6 className="small comment-meta"><a href="">{this.props.details.author}</a> { moment(this.props.details.when).calendar() }</h6>
+                            <div className="comment-body">
+                                <p>
+                                    {`"${this.props.details.question}" `}
+                                    <span className={`badge badge-${(this.props.i === 0) ? "success" : "info"}`}>{`+ ${Object.keys(this.props.details.votes).length }`}</span>
+                                    <br/>
+                                    <a href="" className="badge badge-info text-right small " onClick={this.vote}><i className="fa fa-thumbs-up"></i>Vote            </a>             
+                                    <a href="" className="badge badge-danger text-right small" onClick={this.close}><i className="fa fa-times"></i>Close</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

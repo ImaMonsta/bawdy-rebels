@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Question from './Question';
 import PostQuestion from './PostQuestion';
 import sampleQuestions from '../sample-questions'
+import firebase from '../settings/FirebaseConfig'
 
 class QuestionRoom extends Component {
     constructor(){
@@ -23,7 +24,8 @@ class QuestionRoom extends Component {
 
     voteForQuestion(questionKey){
         const questions = {...this.state.questions};
-        questions[questionKey].votes["yo"] = Date.now();
+        console.log(`You voted for question ${questionKey} ⁉️`)
+        questions[questionKey].votes["who"] = Date.now();
         this.setState({questions: questions});
     }
 
@@ -38,9 +40,17 @@ class QuestionRoom extends Component {
         questions[`question-${Date.now()}`] = question;
         this.setState({questions: questions});
     }
-    
-    componentDidMount() {
-        this.loadSampleQuestions();
+
+    componentWillMount() {
+        this.ref = firebase.syncState(`/rooms/${this.props.match.params.roomid}/questions`,
+        {
+            context: this,
+            state: "questions",
+        })
+    }
+
+    componentWillUnmount() {
+        firebase.removeBinding(this.ref);
     }
     
     render() {
@@ -48,10 +58,11 @@ class QuestionRoom extends Component {
             <div>
             <section className="testimonial-3 text-center alt-background">
 			<div className="container">
+            <h4><span className="badge badge-primary">{this.props.match.params.roomid}</span></h4>
 				<h3 className="mb-3">What people are asking?</h3>
 				<div className="divider"></div>
                 <div className="container text-center"><PostQuestion addNewQuestion={this.addNewQuestion}/></div>
-				<div className="row">
+				<div className="container text-center">
                     {   
                         Object
                             .keys(this.state.questions)

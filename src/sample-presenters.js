@@ -1,5 +1,5 @@
 const presenters = {
-    room1: {
+    "awesome-react-from-scratch": {
         "description" : "React from scract is a simple SPA that connects with Firebase.",
         "name" : "React from Scratch",
         "presenter" : {
@@ -11,7 +11,7 @@ const presenters = {
         }
     },
     room2: {
-        "description" : "React from scract is a simple SPA that connects with Firebase.",
+        "description" : "Elastic Search",
         "name" : "React from Scratch",
         "presenter" : {
             "email" : "me@g3rm4n.xyz",
@@ -22,7 +22,7 @@ const presenters = {
         }
     },
     room3: {
-        "description" : "React from scract is a simple SPA that connects with Firebase.",
+        "description" : "I do know.",
         "name" : "React from Scratch",
         "presenter" : {
             "email" : "me@g3rm4n.xyz",
@@ -33,7 +33,7 @@ const presenters = {
         }
     },
     room4: {
-        "description" : "React from scract is a simple SPA that connects with Firebase.",
+        "description" : "Something.",
         "name" : "React from Scratch",
         "presenter" : {
             "email" : "me@g3rm4n.xyz",

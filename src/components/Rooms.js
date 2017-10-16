@@ -20,7 +20,6 @@ class Rooms extends Component {
 		this.loadSample();
 	}
 	
-	
     render() {
         return (
             <section className="team-3 text-center alt-background" >
@@ -31,7 +30,7 @@ class Rooms extends Component {
 					{	
 						Object
 							.keys(this.state.presenters)
-							.map(key => <Room id={key} presenter={this.state.presenters[key].presenter} description={this.state.presenters[key].description}/>)
+							.map(key => <Room key={key} id={key} presenter={this.state.presenters[key].presenter} description={this.state.presenters[key].description}/>)
 					}
 				</div>
 			</div>

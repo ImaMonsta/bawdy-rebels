@@ -3,6 +3,7 @@ import Question from './Question';
 import PostQuestion from './PostQuestion';
 import sampleQuestions from '../sample-questions'
 import firebase from '../settings/FirebaseConfig'
+import firebaseApp from 'firebase';
 
 class QuestionRoom extends Component {
     constructor(){
@@ -13,6 +14,7 @@ class QuestionRoom extends Component {
         this.closeQuestion = this.closeQuestion.bind(this);
         this.state = {
             questions: {},
+            user: {},
         };
     }
     
@@ -46,7 +48,13 @@ class QuestionRoom extends Component {
         {
             context: this,
             state: "questions",
-        })
+        });
+
+        firebaseApp.auth().onAuthStateChanged(user => {
+            if(user){
+                this.setState({user});
+            }
+        });
     }
 
     componentWillUnmount() {
@@ -61,7 +69,7 @@ class QuestionRoom extends Component {
             <h4><span className="badge badge-primary">{this.props.match.params.roomid}</span></h4>
 				<h3 className="mb-3">What people are asking?</h3>
 				<div className="divider"></div>
-                <div className="container text-center"><PostQuestion addNewQuestion={this.addNewQuestion}/></div>
+                <div className="container text-center"><PostQuestion addNewQuestion={this.addNewQuestion} user={ this.state.user }/></div>
 				<div className="container text-center">
                     {   
                         Object
@@ -74,7 +82,8 @@ class QuestionRoom extends Component {
                                         id={key} 
                                         details={this.state.questions[key]} i={i} 
                                         voteForQuestion={this.voteForQuestion}
-                                        closeQuestion={this.closeQuestion}/>
+                                        closeQuestion={this.closeQuestion}
+                                        user={this.state.user}/>
                                 )
                     }
 				</div>

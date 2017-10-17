@@ -21,7 +21,7 @@ class Question extends Component {
                 <div className="comments col-md-12" id="comments">
                     <div className="comment mb-2 row">
                         <div className="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-                            <a href=""><img className="mx-auto rounded-circle img-fluid" src="https://s.gravatar.com/avatar/d67612c2a3a5243efe7abbc9078261ae?s=400" alt="avatar"/></a>
+                            <a href=""><img className="mx-auto rounded-circle img-fluid" src={this.props.details.photo} alt="avatar"/></a>
                         </div>
                         <div className="comment-content col-md-11 col-sm-10">
                             <h6 className="small comment-meta"><a href="">{this.props.details.author}</a> { moment(this.props.details.when).calendar() }</h6>

@@ -7,21 +7,24 @@ class PostQuestion extends Component {
     }
 
     postQuestion(event){
+
         event.preventDefault();
         if(this.question.value === "") return;
+        
         const question = {
             question: this.question.value,
             status: "open",
-            author: "yo",
+            author: this.props.user.email,
             when: Date.now(),
+            photo: this.props.user.photoURL,
             votes: { 
-                "yo": Date.now()
+                [this.props.user.uid]: Date.now()
             },
         };
         this.props.addNewQuestion(question);
         this.questionForm.reset();
+        
     }
-
     render() {
         return (
             <form ref={(input) => this.questionForm = input} className="col-sm-12 subscribe" onSubmit={this.postQuestion}>

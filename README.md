@@ -15,6 +15,7 @@ They are preconfigured and hidden so that you can focus on the code.
 ### What has inside?
 - react
 - react-router-dom
+- re-base
 - firebase (Database, Hosting, Functions)
 - bootstrap
 - font awesome

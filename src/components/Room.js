@@ -18,7 +18,7 @@ class Room extends Component {
         return (
             <div className="col-md-4 col-team">
                 <div className="box rounded-corners">
-                    <a onClick={this.goToRoom}><img alt="me" className="rounded-circle" src={`http://gravatar.com/avatar/${MD5(this.props.presenter.email || '')}?s=400`}/></a>
+                    <a onClick={this.goToRoom}><img alt="me" className="rounded-circle" src={`https://gravatar.com/avatar/${MD5(this.props.presenter.email || '')}?s=400`}/></a>
                     <h4>{this.props.presenter.name}</h4>
                     <p><span className="emphasis">{this.props.presenter.title}</span></p>
                     <p>{this.props.description}</p>

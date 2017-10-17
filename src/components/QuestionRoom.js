@@ -25,6 +25,7 @@ class QuestionRoom extends Component {
     }
 
     voteForQuestion(questionKey){
+        if(!this.state.user) return;
         const questions = {...this.state.questions};
         console.log(`You voted for question ${questionKey} ⁉️`)
         questions[questionKey].votes[this.state.user.uid] = Date.now();
@@ -38,6 +39,7 @@ class QuestionRoom extends Component {
     }
 
     addNewQuestion(question){
+        if(!this.state.user) return;
         const questions = {...this.state.questions};
         questions[`question-${Date.now()}`] = question;
         this.setState({questions: questions});

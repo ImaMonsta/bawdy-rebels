@@ -11,7 +11,11 @@
     ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "/helloworld/*",
+        "function": "helloWorld"
+      },
+      {
+        "source": "*",
         "destination": "/index.html"
       }
     ]

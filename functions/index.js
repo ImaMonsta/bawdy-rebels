@@ -12,16 +12,16 @@ exports.sanitize = functions.database
     .ref('/rooms/{roomId}/questions/{questionId}')
     .onWrite(event => {
         const question = event.data.val();
-        if(question.sanitized) return;
+        if(question.sanitized || false) return;
         console.log(`Sanitizing question ${event.params.questionId}`);
         console.log(question);
-        question.sanitzed = true;
+        question.sanitized = true;
         question.question = sanitize(question.question);
         return event.data.ref.set(question);
     });
 
     sanitize = s => {
         let sanitatizeText = s;
-        sanitatizeText = sanitatizeText.replace(/\bstupid\b/ig, "greate");
+        sanitatizeText = sanitatizeText.replace(/\bstupid\b/ig, "great");
         return sanitatizeText;
     }

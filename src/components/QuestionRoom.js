@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Question from './Question';
 import PostQuestion from './PostQuestion';
 import sampleQuestions from '../sample-questions'
-import firebase from '../settings/FirebaseConfig'
-import firebaseApp from 'firebase';
+import rebase from '../settings/FirebaseConfig'
+import firebase from 'firebase';
 
 class QuestionRoom extends Component {
     constructor(){
@@ -46,13 +46,13 @@ class QuestionRoom extends Component {
     }
 
     componentWillMount() {
-        this.ref = firebase.syncState(`/rooms/${this.props.match.params.roomid}/questions`,
+        this.ref = rebase.syncState(`/rooms/${this.props.match.params.roomid}/questions`,
         {
             context: this,
             state: "questions",
         });
 
-        firebaseApp.auth().onAuthStateChanged(user => {
+        firebase.auth().onAuthStateChanged(user => {
             if(user){
                 this.setState({user});
             }
@@ -60,7 +60,7 @@ class QuestionRoom extends Component {
     }
 
     componentWillUnmount() {
-        firebase.removeBinding(this.ref);
+        rebase.removeBinding(this.ref);
     }
     
     render() {
@@ -77,7 +77,7 @@ class QuestionRoom extends Component {
                         Object
                             .keys(this.state.questions)
                             .filter(key => this.state.questions[key].status==="open")
-                            .sort((a, b) => Object.keys(this.state.questions[b].votes).length - Object.keys(this.state.questions[a].votes).length)
+                            .sort((a, b) => Object.keys(this.state.questions[b].votes || {}).length - Object.keys(this.state.questions[a].votes || {}).length)
                             .map((key, i) => 
                                     <Question 
                                         key={key} 

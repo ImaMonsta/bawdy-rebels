@@ -3,6 +3,7 @@ import firebase from 'firebase'
 import PropTypes from 'prop-types'
 import Room from './Room'
 import samplePresenters from '../sample-presenters'
+import rebase from '../settings/FirebaseConfig'
 
 class Rooms extends Component {
 	constructor(){
@@ -29,7 +30,11 @@ class Rooms extends Component {
 	}
 
 	componentWillMount() {
-		this.loadSample();
+		this.ref = rebase.syncState(`/rooms`,
+        {
+            context: this,
+            state: "presenters",
+        });
 
 		firebase.auth().onAuthStateChanged( user => {
 			if (user) {
@@ -37,6 +42,10 @@ class Rooms extends Component {
 			} 
 		  });
 	}
+
+	componentWillUnmount() {
+        rebase.removeBinding(this.ref);
+    }
 	
     render() {
         return (

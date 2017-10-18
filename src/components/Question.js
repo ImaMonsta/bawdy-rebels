@@ -28,7 +28,7 @@ class Question extends Component {
                             <div className="comment-body">
                                 <p>
                                     {`"${this.props.details.question}" `}
-                                    <span className={`badge badge-${(this.props.i === 0) ? "success" : "info"}`}>{`+ ${Object.keys(this.props.details.votes).length }`}</span>
+                                    <span className={`badge badge-${(this.props.i === 0) ? "success" : "info"}`}>{`+ ${Object.keys(this.props.details.votes || {}).length }`}</span>
                                     <br/>
                                     <a href="" className="badge badge-info text-right small " onClick={this.vote}><i className="fa fa-thumbs-up"></i>Vote            </a>             
                                     <a href="" className="badge badge-danger text-right small" onClick={this.close}><i className="fa fa-times"></i>Close</a>

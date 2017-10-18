@@ -12,7 +12,7 @@ exports.sanitize = functions.database
     .ref('/rooms/{roomId}/questions/{questionId}')
     .onWrite(event => {
         const question = event.data.val();
-        if(post.sanitized) return;
+        if(question.sanitized) return;
         console.log(`Sanitizing question ${event.params.questionId}`);
         console.log(question);
         question.sanitzed = true;
